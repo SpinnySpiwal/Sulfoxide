@@ -1,4 +1,4 @@
-local addcall = loadstring(game:HttpGet("https://raw.githubusercontent.com/0Void2391/Sulfoxide/refs/heads/main/ui/modules/Remotespy.lua"))()
+local addcall = loadstring(game:HttpGet("https://raw.githubusercontent.com/SpinnySpiwal/Sulfoxide/refs/heads/main/ui/modules/Remotespy.lua"))()
 local function comparetables(t1,t2)
     local t1string = customrequire(ui.LuaEncode)(t1)
     local t2string = customrequire(ui.LuaEncode)(t2)
@@ -30,7 +30,7 @@ if typeof(self) == "Instance" and string.gsub(method, "^%l", string.upper) == "F
     local oldid = getthreadidentity()
     setthreadidentity(8)
     if getgenv().loggedremotes.blockedremotes["All"][GetDebugId(self)..method] or (getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(self))..method] and comparetables(getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(self))..method].args,args)) then
-        return 
+        return
     elseif getgenv().loggedremotes.ignoredremotes["All"][(GetDebugId(self))..method] or (getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(self))..method] and comparetables(getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(self))..method].args,args)) or getgenv().iscaller and iscaller
         then
             return old(...)
@@ -52,7 +52,7 @@ for i,v in pairs(getinstances()) do
         v.OnClientEvent:Connect(function(...)
             local method = "OnClientEvent"
             if getgenv().loggedremotes.blockedremotes["All"][GetDebugId(v)..method] or (getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(v))..method] and comparetables(getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(v))..method].args,args)) then
-                return 
+                return
             elseif getgenv().loggedremotes.ignoredremotes["All"][(GetDebugId(v))..method] or (getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(v))..method] and comparetables(getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(v))..method].args,args)) or getgenv().iscaller and iscaller
                 then
                     return
@@ -62,14 +62,14 @@ for i,v in pairs(getinstances()) do
         end)
     elseif v:IsA("RemoteFunction") then
         if getcallbackvalue and pcall(getcallbackvalue,v, "OnClientInvoke") then
-        local old; 
+        local old;
         local _,old = pcall(hookfunction,getcallbackvalue(v, "OnClientInvoke"), newcclosure(function(...)
             local oldid = getthreadidentity()
             setthreadidentity(8)
             local addcall = loadstring(game:HttpGet("https://raw.githubusercontent.com/0Void2391/Sulfoxide/refs/heads/main/ui/modules/Remotespy.lua"))()--upvalue exceeded fix
             local method = "OnClientInvoke"
             if getgenv().loggedremotes.blockedremotes["All"][GetDebugId(v)..method] or (getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(v))..method] and comparetables(getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(v))..method].args,args)) then
-                return 
+                return
             elseif getgenv().loggedremotes.ignoredremotes["All"][(GetDebugId(v))..method] or (getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(v))..method] and comparetables(getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(v))..method].args,args)) or getgenv().iscaller and iscaller
                 then
                     return
@@ -95,9 +95,9 @@ local old; old = hookfunction(fireserver,newcclosure(function(...)
             local oldid = getthreadidentity()
             setthreadidentity(8)
             if getgenv().loggedremotes.blockedremotes["All"][GetDebugId(self)..method] or (getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(self))..method] and comparetables(getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(self))..method].args,args)) then
-                return 
-            elseif getgenv().loggedremotes.ignoredremotes["All"][(GetDebugId(self))..method] or (getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(self))..method] and comparetables(getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(self))..method].args,args)) or getgenv().iscaller and iscaller
-                then 
+                return
+            elseif getgenv().loggedremotes.ignoredremotes["All"][(GetDebugId(self))..method] or (getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(self))..method] and comparetables(getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(self))..method].args,args)) or getgenv().iscaller and iscaller i commented becayse it's dtc idk why
+                then
                 return old(...)
             end
             local remote = remoteclass.new(self,method,args,callingscript,debug.info(3,"f"))
@@ -115,9 +115,9 @@ local old; old = hookfunction(invokeserver,newcclosure(function(...)
             setthreadidentity(8)
             --[[
             if getgenv().loggedremotes.blockedremotes["All"][GetDebugId(self)..method] or (getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(self))..method] and comparetables(getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(self))..method].args,args)) then
-                return 
+                return
             elseif getgenv().loggedremotes.ignoredremotes["All"][(GetDebugId(self))..method] or (getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(self))..method] and comparetables(getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(self))..method].args,args)) or getgenv().iscaller and iscaller
-                then 
+                then
                 return old(...)
             end
             I decided to comment because it's dtc idk why
@@ -136,9 +136,9 @@ local old; old = hookfunction(fire,newcclosure(function(...)
             local oldid = getthreadidentity()
             setthreadidentity(8)
             if getgenv().loggedremotes.blockedremotes["All"][GetDebugId(self)..method] or (getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(self))..method] and comparetables(getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(self))..method].args,args)) then
-                return 
+                return
             elseif getgenv().loggedremotes.ignoredremotes["All"][(GetDebugId(self))..method] or (getgenv().loggedremotes.ignoredremotes["Args"][(self.GetDebugId(self))..method] and comparetables(getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(self))..method].args,args)) or getgenv().iscaller and iscaller
-                then 
+                then
                 return old(...)
             end
             local remote = remoteclass.new(self,method,args,callingscript,debug.info(3,"f"))
@@ -155,9 +155,9 @@ local old; old = hookfunction(invoke,newcclosure(function(...)
             local oldid = getthreadidentity()
             setthreadidentity(8)
             if getgenv().loggedremotes.blockedremotes["All"][GetDebugId(self)..method] or (getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(self))..method] and comparetables(getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(self))..method].args,args)) then
-                return 
+                return
             elseif getgenv().loggedremotes.ignoredremotes["All"][(GetDebugId(self))..method] or (getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(self))..method] and comparetables(getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(self))..method].args,args)) or getgenv().iscaller and iscaller
-                then 
+                then
                 return old(...)
             end
             local remote = remoteclass.new(self,method,args,callingscript,debug.info(3,"f"))
@@ -171,7 +171,7 @@ if typeof(v) == "Instance" then
         v.OnClientEvent:Connect(function(...)
             local method = "OnClientEvent"
             if getgenv().loggedremotes.blockedremotes["All"][GetDebugId(v)..method] or (getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(v))..method] and comparetables(getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(v))..method].args,args)) then
-                return 
+                return
             elseif getgenv().loggedremotes.ignoredremotes["All"][(GetDebugId(v))..method] or (getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(v))..method] and comparetables(getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(v))..method].args,args)) or getgenv().iscaller and iscaller
                 then
                     return
@@ -182,14 +182,14 @@ if typeof(v) == "Instance" then
     elseif v:IsA("RemoteFunction") then
         task.wait(0.01)
         if getcallbackvalue and pcall(getcallbackvalue,v, "OnClientInvoke") then
-        local old; 
+        local old;
         local _,old = pcall(hookfunction,getcallbackvalue(v, "OnClientInvoke"), newcclosure(function(...)
             local oldid = getthreadidentity()
             setthreadidentity(8)
             local addcall = loadstring(game:HttpGet("https://raw.githubusercontent.com/0Void2391/Sulfoxide/refs/heads/main/ui/modules/Remotespy.lua"))()--upvalue exceeded fix
             local method = "OnClientInvoke"
             if getgenv().loggedremotes.blockedremotes["All"][GetDebugId(v)..method] or (getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(v))..method] and comparetables(getgenv().loggedremotes.blockedremotes["Args"][(GetDebugId(v))..method].args,args)) then
-                return 
+                return
             elseif getgenv().loggedremotes.ignoredremotes["All"][(GetDebugId(v))..method] or (getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(v))..method] and comparetables(getgenv().loggedremotes.ignoredremotes["Args"][(GetDebugId(v))..method].args,args)) or getgenv().iscaller and iscaller
                 then
                     return
